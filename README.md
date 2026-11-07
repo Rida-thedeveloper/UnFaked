@@ -18,4 +18,3 @@ VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLIC_PUBLISHABLE_KEY
 Then run `supabase/waitlist.sql` in the Supabase SQL Editor. The policy allows visitors to insert consented registrations but does not allow public reads. To view submissions, sign in to your own Supabase project and open **Table Editor → waitlist**. Do not add the service role key to this frontend project.
 
 Until the project is connected and the table is created, the form explicitly reports that registration is unavailable and does not claim that submissions were saved.
-
