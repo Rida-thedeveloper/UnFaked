@@ -7,3 +7,10 @@
 .nccia-identity{display:flex;align-items:center;gap:11px;margin-bottom:18px;padding:11px;border:1px solid #879cad30;border-radius:8px;background:#ffffff06;color:#eaf2f8;text-decoration:none}.nccia-monogram{width:37px;height:37px;display:grid;place-items:center;border:1px solid #8aa4ba55;border-radius:50%;font:600 17px var(--display);color:#dbe8f1}.nccia-identity>span:nth-child(2){display:grid;gap:3px;flex:1}.nccia-identity b{font:600 13px var(--display);letter-spacing:.1em}.nccia-identity small{font-size:9px;line-height:1.4;color:#9daebe}.nccia-identity>svg{color:#aebdca;transition:transform .2s}.nccia-identity:hover>svg{transform:translateX(3px)}
 @media(max-width:760px){.app-device{height:612px}.meeting-window{height:380px}.meeting-person.person-one{width:120px;height:82px;top:10px;right:10px}.verify-panel{left:10px;bottom:57px;width:min(180px,53%)}.marketplace-note{left:auto;right:10px;bottom:58px;max-width:36%;font-size:6px;padding:6px}.face-scan-overlay>small{top:10px;left:10px;font-size:6px}.reticle{top:18%;height:55%}}
 @media(prefers-reduced-motion:reduce){.section h2.scroll-reveal{clip-path:none;transform:none;transition:none;opacity:1}.section h2.scroll-reveal>span{transform:none;transition:none}}
+.enterprise-ui .candidate-video{isolation:isolate}
+.enterprise-ui .candidate-video:after{box-sizing:border-box;inset:17% 34% 11% 24%;z-index:3;pointer-events:none;border-color:rgba(153,218,255,.9)}
+.enterprise-ui .candidate-video:before{left:24%;right:34%;top:17%;height:2px;z-index:4;animation:candidate-face-scan 3.8s ease-in-out infinite}
+.enterprise-ui .candidate-video .camera-label{z-index:5}
+.enterprise-ui .candidate-recruiter-tile{z-index:6}
+@keyframes candidate-face-scan{0%{top:17%;opacity:.18}8%{opacity:.92}48%{top:78%;opacity:.82}92%{opacity:.92}100%{top:17%;opacity:.18}}
+@media(prefers-reduced-motion:reduce){.enterprise-ui .candidate-video:before{animation:none!important;top:48%;opacity:.8}}
