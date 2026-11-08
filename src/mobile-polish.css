@@ -392,3 +392,24 @@
     overflow-wrap: anywhere;
   }
 }
+
+/* Give the candidate interview frame more vertical room. */
+@media (min-width: 761px) {
+  .enterprise-ui {
+    height: 410px;
+  }
+
+  .enterprise-ui .candidate-video {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 760px) {
+  .enterprise-ui {
+    height: auto;
+  }
+
+  .enterprise-ui .candidate-video {
+    min-height: clamp(250px, 74vw, 320px);
+  }
+}
