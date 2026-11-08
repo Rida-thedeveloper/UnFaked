@@ -8,9 +8,9 @@
 @media(max-width:760px){.app-device{height:612px}.meeting-window{height:380px}.meeting-person.person-one{width:120px;height:82px;top:10px;right:10px}.verify-panel{left:10px;bottom:57px;width:min(180px,53%)}.marketplace-note{left:auto;right:10px;bottom:58px;max-width:36%;font-size:6px;padding:6px}.face-scan-overlay>small{top:10px;left:10px;font-size:6px}.reticle{top:18%;height:55%}}
 @media(prefers-reduced-motion:reduce){.section h2.scroll-reveal{clip-path:none;transform:none;transition:none;opacity:1}.section h2.scroll-reveal>span{transform:none;transition:none}}
 .enterprise-ui .candidate-video{isolation:isolate}
-.enterprise-ui .candidate-video:after{box-sizing:border-box;inset:17% 34% 11% 24%;z-index:3;pointer-events:none;border-color:rgba(153,218,255,.9)}
-.enterprise-ui .candidate-video:before{left:24%;right:34%;top:17%;height:2px;z-index:4;animation:candidate-face-scan 3.8s ease-in-out infinite}
+.enterprise-ui .candidate-video:after{box-sizing:border-box;inset:3% 29% 33% 29%;z-index:3;pointer-events:none;border-color:rgba(153,218,255,.9)}
+.enterprise-ui .candidate-video:before{left:29%;right:29%;top:3%;height:2px;z-index:4;animation:candidate-face-scan 3.8s ease-in-out infinite}
 .enterprise-ui .candidate-video .camera-label{z-index:5}
 .enterprise-ui .candidate-recruiter-tile{z-index:6}
-@keyframes candidate-face-scan{0%{top:17%;opacity:.18}8%{opacity:.92}48%{top:78%;opacity:.82}92%{opacity:.92}100%{top:17%;opacity:.18}}
-@media(prefers-reduced-motion:reduce){.enterprise-ui .candidate-video:before{animation:none!important;top:48%;opacity:.8}}
+@keyframes candidate-face-scan{0%{top:3%;opacity:.18}8%{opacity:.92}48%{top:62%;opacity:.82}92%{opacity:.92}100%{top:3%;opacity:.18}}
+@media(prefers-reduced-motion:reduce){.enterprise-ui .candidate-video:before{animation:none!important;top:33%;opacity:.8}}

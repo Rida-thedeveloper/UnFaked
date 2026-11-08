@@ -1,0 +1,285 @@
+@media (max-width: 760px) {
+  .section,
+  .waitlist-section {
+    padding-left: clamp(16px, 5.2vw, 22px);
+    padding-right: clamp(16px, 5.2vw, 22px);
+  }
+
+  .section-inner,
+  .hero-inner {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .hero {
+    padding-left: clamp(16px, 5.2vw, 22px);
+    padding-right: clamp(16px, 5.2vw, 22px);
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 10.8vw, 62px);
+    line-height: 0.99;
+    text-wrap: balance;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 360px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+  }
+
+  .hero-proof {
+    flex-wrap: wrap;
+    row-gap: 9px;
+  }
+
+  .product-layout,
+  .enterprise-layout,
+  .product-copy,
+  .phone-wrap,
+  .chat-device,
+  .enterprise-ui,
+  .meeting-window,
+  .waitlist-layout,
+  .form-card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .product-copy h2,
+  .zoom-layout h2 {
+    font-size: clamp(34px, 8.8vw, 42px);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  .product-label {
+    row-gap: 7px;
+  }
+
+  .product-label > span:last-child {
+    line-height: 1.45;
+  }
+
+  .phone-device {
+    width: min(300px, calc(100vw - 36px));
+  }
+
+  .chat-device {
+    width: min(342px, calc(100vw - 36px));
+  }
+
+  .phone-note {
+    max-width: 300px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .field input,
+  .field select {
+    min-height: 46px;
+    font-size: 16px;
+  }
+
+  .consent {
+    align-items: flex-start;
+    line-height: 1.55;
+  }
+
+  .submit-button {
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+
+  .footer-links > div {
+    min-width: 0;
+  }
+
+  .footer-links > div:nth-child(3) {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 9px 16px;
+  }
+
+  .footer-links > div:nth-child(3) b {
+    width: 100%;
+  }
+
+  .footer-links a {
+    min-height: 44px;
+    font-size: 11px;
+  }
+
+  .site-footer {
+    padding-bottom: calc(90px + env(safe-area-inset-bottom));
+  }
+
+  .mobile-cta {
+    padding-bottom: max(10px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 600px) {
+  .enterprise-ui {
+    height: auto;
+  }
+
+  .dash-content {
+    padding: 14px;
+  }
+
+  .dash-heading h3 {
+    font-size: 16px;
+  }
+
+  .session-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+    padding: 9px;
+  }
+
+  .candidate-video {
+    grid-row: auto;
+    min-height: clamp(210px, 62vw, 270px);
+  }
+
+  .candidate-info {
+    min-height: 58px;
+    padding: 9px;
+  }
+
+  .candidate-info b {
+    font-size: 10px;
+  }
+
+  .candidate-info small {
+    font-size: 8px;
+  }
+
+  .review-tag {
+    font-size: 7px;
+    white-space: nowrap;
+  }
+
+  .signal-box {
+    padding: 10px;
+  }
+
+  .alert-strip {
+    margin-top: 9px;
+  }
+
+  .waitlist-benefits {
+    grid-template-columns: 1fr;
+  }
+
+  .waitlist-copy h2 {
+    font-size: clamp(38px, 10vw, 46px);
+    text-wrap: balance;
+  }
+
+  .meeting-window {
+    height: clamp(330px, 94vw, 380px);
+  }
+
+  .meeting-controls {
+    gap: clamp(8px, 3vw, 17px);
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding-top: 108px;
+  }
+
+  .nav-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 9px;
+  }
+
+  .nav-inner > .button {
+    padding: 0 9px;
+    font-size: 10px;
+  }
+
+  .menu-toggle {
+    flex: 0 0 38px;
+  }
+
+  .workflow-steps {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .footer-links {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .footer-links > div:nth-child(3) {
+    grid-column: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-links > div:nth-child(3) b {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 350px) {
+  .section h2,
+  .principles-layout h2,
+  .responsibility-layout h2,
+  .faq-layout h2 {
+    font-size: 35px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .candidate-info {
+    flex-wrap: wrap;
+  }
+
+  .candidate-info > div {
+    min-width: 0;
+  }
+
+  .review-tag {
+    margin-left: 33px;
+  }
+
+  .verify-panel {
+    width: min(165px, 52%);
+  }
+}

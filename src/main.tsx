@@ -6,6 +6,7 @@ import './style.css';
 import './style2.css';
 import './motion.css';
 import './reference-polish.css';
+import './mobile-polish.css';
 import MobileAppPreview from './MobileAppPreview';
 import { HandWrittenTitle } from '@/components/ui/hand-writing-text';
 
