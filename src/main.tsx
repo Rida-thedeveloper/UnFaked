@@ -1,7 +1,7 @@
 import React, { FormEvent, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createClient } from '@supabase/supabase-js';
-import { Activity, ArrowDown, ArrowRight, AudioLines, Check, ChevronDown, CircleHelp, Eye, FileVideo2, LockKeyhole, Menu, MessageCircle, ScanFace, ShieldCheck, Smartphone, UsersRound, Video, X } from 'lucide-react';
+import { Activity, ArrowDown, ArrowRight, AudioLines, Check, ChevronDown, CircleHelp, Eye, FileVideo2, LockKeyhole, Menu, MessageCircle, ScanFace, ShieldCheck, Smartphone, Video, X } from 'lucide-react';
 import './style.css';
 import './style2.css';
 import './motion.css';
@@ -58,7 +58,13 @@ function CommunityCount() {
  const [count,setCount]=useState<number|null>(null);
  useEffect(()=>{let active=true;if(!supabase)return;supabase.rpc('get_waitlist_count').then(({data,error})=>{const value=Number(data);if(active&&!error&&Number.isFinite(value)&&value>=0)setCount(value)});return()=>{active=false}},[]);
  if(count===null)return null;
- return <div className="community-count" aria-live="polite"><span className="community-count-icon"><UsersRound size={19}/></span><span><strong>{count.toLocaleString()} {count===1?'person has':'people have'} joined</strong><small>UnFaked early-access waitlist</small></span></div>;
+ const portraits=[
+  {src:'https://images.unsplash.com/photo-1734434570358-21badf4ba1c6?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'mint'},
+  {src:'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'coral'},
+  {src:'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'gold'},
+  {src:'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'blue'},
+ ];
+ return <div className="community-count" aria-live="polite"><div className="community-avatars" aria-hidden="true">{portraits.map((portrait,index)=><span className={`community-avatar ${portrait.tone}`} key={portrait.src} style={{'--avatar-index':index} as React.CSSProperties}><img src={portrait.src} alt="" loading="lazy"/></span>)}</div><span className="community-count-copy"><strong>{count.toLocaleString()} {count===1?'person':'people'} on the waitlist</strong><small>Illustrative portraits · live signup count</small></span></div>;
 }
 
 function Waitlist() {
