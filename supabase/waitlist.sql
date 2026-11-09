@@ -18,3 +18,17 @@ create policy "Allow consented waitlist registrations"
   with check (consent = true);
 
 grant insert on table public.waitlist to anon;
+
+-- Return only the aggregate count. Do not grant anonymous access to signup rows,
+-- names, email addresses, organizations or other personal information.
+create or replace function public.get_waitlist_count()
+returns bigint
+language sql
+security definer
+set search_path = ''
+as $$
+  select count(*)::bigint from public.waitlist;
+$$;
+
+revoke all on function public.get_waitlist_count() from public, anon, authenticated;
+grant execute on function public.get_waitlist_count() to anon;
