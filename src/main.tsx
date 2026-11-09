@@ -64,7 +64,7 @@ function CommunityCount() {
   {src:'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'gold'},
   {src:'https://images.unsplash.com/photo-1742402372285-da4752ec3533?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'blue'},
  ];
- return <div className="community-count" aria-live="polite"><div className="community-avatars" aria-hidden="true">{portraits.map((portrait,index)=><span className={`community-avatar ${portrait.tone}`} key={portrait.src} style={{'--avatar-index':index} as React.CSSProperties}><img src={portrait.src} alt="" loading="lazy"/></span>)}</div><span className="community-count-copy"><strong>{count.toLocaleString()} {count===1?'person':'people'} on the waitlist</strong><small>UnFaked community · illustrative portraits</small></span></div>;
+ return <div className="community-count" aria-live="polite"><div className="community-avatars" aria-hidden="true">{portraits.map((portrait,index)=><span className={`community-avatar ${portrait.tone}`} key={portrait.src} style={{'--avatar-index':index} as React.CSSProperties}><img src={portrait.src} alt="" loading="lazy"/></span>)}</div><span className="community-count-copy"><strong>{count.toLocaleString()} {count===1?'person':'people'} on the waitlist</strong><small title="Portraits are illustrative, not actual waitlist members." aria-label="Detect the fake. Reveal the real. Portraits are illustrative, not actual waitlist members.">Detect the fake. Reveal the real.</small></span></div>;
 }
 
 function Waitlist() {
