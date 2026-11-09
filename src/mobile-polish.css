@@ -407,15 +407,19 @@
 }
 
 .community-avatars {
+  position: relative;
   display: flex;
   align-items: center;
-  flex: 0 0 auto;
-  padding-left: 3px;
+  width: 106px;
+  height: 38px;
+  flex: 0 0 106px;
 }
 
 .community-avatar {
   --avatar-tone: #7bd8c5;
-  position: relative;
+  position: absolute;
+  top: 2px;
+  left: 0;
   width: 34px;
   height: 34px;
   flex: 0 0 34px;
@@ -424,11 +428,7 @@
   border-radius: 50%;
   background: #182536;
   box-shadow: 0 0 0 2px #101827;
-  animation: community-face-cycle 8s ease-in-out infinite;
-}
-
-.community-avatar + .community-avatar {
-  margin-left: -10px;
+  animation: community-face-rotate 8s ease-in-out infinite;
 }
 
 .community-avatar.mint { --avatar-tone: #72dac3; }
@@ -448,16 +448,31 @@
   object-position: center 34%;
 }
 
-@keyframes community-face-cycle {
-  0%, 12% {
+@keyframes community-face-rotate {
+  0%, 20% {
     z-index: 2;
-    transform: translateY(-3px) scale(1.1);
+    transform: translateX(0) translateY(-3px) scale(1.1);
     box-shadow: 0 0 0 2px #101827, 0 0 16px color-mix(in srgb, var(--avatar-tone) 62%, transparent);
   }
-  18%, 100% {
+  25%, 45% {
     z-index: 1;
-    transform: translateY(0) scale(1);
+    transform: translateX(24px) translateY(0) scale(1);
     box-shadow: 0 0 0 2px #101827;
+  }
+  50%, 70% {
+    z-index: 1;
+    transform: translateX(48px) translateY(0) scale(1);
+    box-shadow: 0 0 0 2px #101827;
+  }
+  75%, 95% {
+    z-index: 1;
+    transform: translateX(72px) translateY(0) scale(1);
+    box-shadow: 0 0 0 2px #101827;
+  }
+  100% {
+    z-index: 2;
+    transform: translateX(0) translateY(-3px) scale(1.1);
+    box-shadow: 0 0 0 2px #101827, 0 0 16px color-mix(in srgb, var(--avatar-tone) 62%, transparent);
   }
 }
 
@@ -490,6 +505,14 @@
     flex-basis: 31px;
   }
 
+  .community-avatars {
+    width: 98px;
+    flex-basis: 98px;
+    transform: scale(.92);
+    transform-origin: left center;
+    margin-right: -8px;
+  }
+
   .community-count strong {
     font-size: 12px;
   }
@@ -498,7 +521,11 @@
 @media (prefers-reduced-motion: reduce) {
   .community-avatar {
     animation: none;
+    transform: none;
   }
+  .community-avatar:nth-child(2) { left: 24px; }
+  .community-avatar:nth-child(3) { left: 48px; }
+  .community-avatar:nth-child(4) { left: 72px; }
 }
 
 /* Give the candidate interview frame more vertical room. */
