@@ -56,7 +56,7 @@ function FAQ() { const [open,setOpen]=useState<number|null>(0); return <div clas
 
 function CommunityCount() {
  const [count,setCount]=useState<number|null>(null);
- useEffect(()=>{let active=true;if(!supabase)return;supabase.rpc('get_waitlist_count').then(({data,error})=>{const value=Number(data);if(active&&!error&&Number.isFinite(value)&&value>=0)setCount(value)});return()=>{active=false}},[]);
+ useEffect(()=>{let active=true;if(!supabase)return;const refresh=async()=>{const {data,error}=await supabase.rpc('get_waitlist_count');const value=Number(data);if(active&&!error&&Number.isFinite(value)&&value>=0)setCount(value)};void refresh();const timer=window.setInterval(()=>void refresh(),30_000);return()=>{active=false;window.clearInterval(timer)}},[]);
  if(count===null)return null;
  const portraits=[
   {src:'https://images.unsplash.com/photo-1734434570358-21badf4ba1c6?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'mint'},
@@ -64,7 +64,7 @@ function CommunityCount() {
   {src:'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'gold'},
   {src:'https://images.unsplash.com/photo-1742402372285-da4752ec3533?auto=format&fit=crop&crop=faces&w=96&h=96&q=80',tone:'blue'},
  ];
- return <div className="community-count" aria-live="polite"><div className="community-avatars" aria-hidden="true">{portraits.map((portrait,index)=><span className={`community-avatar ${portrait.tone}`} key={portrait.src} style={{'--avatar-index':index} as React.CSSProperties}><img src={portrait.src} alt="" loading="lazy"/></span>)}</div><span className="community-count-copy"><strong>{count.toLocaleString()} {count===1?'person':'people'} on the waitlist</strong><small>Illustrative portraits · live signup count</small></span></div>;
+ return <div className="community-count" aria-live="polite"><div className="community-avatars" aria-hidden="true">{portraits.map((portrait,index)=><span className={`community-avatar ${portrait.tone}`} key={portrait.src} style={{'--avatar-index':index} as React.CSSProperties}><img src={portrait.src} alt="" loading="lazy"/></span>)}</div><span className="community-count-copy"><strong>{count.toLocaleString()} {count===1?'person':'people'} on the waitlist</strong><small>UnFaked community · illustrative portraits</small></span></div>;
 }
 
 function Waitlist() {
