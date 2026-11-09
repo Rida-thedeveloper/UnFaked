@@ -428,7 +428,6 @@
   border-radius: 50%;
   background: #182536;
   box-shadow: 0 0 0 2px #101827;
-  animation: community-face-rotate 8s ease-in-out infinite;
 }
 
 .community-avatar.mint { --avatar-tone: #72dac3; }
@@ -436,9 +435,10 @@
 .community-avatar.gold { --avatar-tone: #e9c46a; }
 .community-avatar.blue { --avatar-tone: #75b8f2; }
 
-.community-avatar:nth-child(2) { animation-delay: -2s; }
-.community-avatar:nth-child(3) { animation-delay: -4s; }
-.community-avatar:nth-child(4) { animation-delay: -6s; }
+.community-avatar:nth-child(1) { left: 0; z-index: 1; }
+.community-avatar:nth-child(2) { left: 24px; z-index: 2; }
+.community-avatar:nth-child(3) { left: 48px; z-index: 3; }
+.community-avatar:nth-child(4) { left: 72px; z-index: 4; }
 
 .community-avatar img {
   display: block;
@@ -446,34 +446,6 @@
   height: 100%;
   object-fit: cover;
   object-position: center 34%;
-}
-
-@keyframes community-face-rotate {
-  0%, 20% {
-    z-index: 2;
-    transform: translateX(0) translateY(-3px) scale(1.1);
-    box-shadow: 0 0 0 2px #101827, 0 0 16px color-mix(in srgb, var(--avatar-tone) 62%, transparent);
-  }
-  25%, 45% {
-    z-index: 1;
-    transform: translateX(24px) translateY(0) scale(1);
-    box-shadow: 0 0 0 2px #101827;
-  }
-  50%, 70% {
-    z-index: 1;
-    transform: translateX(48px) translateY(0) scale(1);
-    box-shadow: 0 0 0 2px #101827;
-  }
-  75%, 95% {
-    z-index: 1;
-    transform: translateX(72px) translateY(0) scale(1);
-    box-shadow: 0 0 0 2px #101827;
-  }
-  100% {
-    z-index: 2;
-    transform: translateX(0) translateY(-3px) scale(1.1);
-    box-shadow: 0 0 0 2px #101827, 0 0 16px color-mix(in srgb, var(--avatar-tone) 62%, transparent);
-  }
 }
 
 .community-count-copy {
@@ -516,16 +488,6 @@
   .community-count strong {
     font-size: 12px;
   }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .community-avatar {
-    animation: none;
-    transform: none;
-  }
-  .community-avatar:nth-child(2) { left: 24px; }
-  .community-avatar:nth-child(3) { left: 48px; }
-  .community-avatar:nth-child(4) { left: 72px; }
 }
 
 /* Give the candidate interview frame more vertical room. */
