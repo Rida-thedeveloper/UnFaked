@@ -413,3 +413,20 @@
     min-height: clamp(250px, 74vw, 320px);
   }
 }
+
+/* Make the Zoom interview scene taller while keeping its overlays inside. */
+.meeting-window {
+  height: clamp(430px, 46vw, 550px);
+}
+
+@media (max-width: 760px) {
+  .meeting-window {
+    height: 410px;
+  }
+}
+
+@media (max-width: 600px) {
+  .meeting-window {
+    height: clamp(390px, 105vw, 440px);
+  }
+}
